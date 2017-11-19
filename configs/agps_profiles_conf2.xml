@@ -1,363 +1,384 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mtk_agps_profiles maj_ver="1" min_ver="2">
+<agps_profiles version="1">
 
-  <!-- cur_supl_profile and supl_profile
-
-    name:
-        SLP name will be displayed on LocatioEM2 - SLP Template list
-
-    addr:
-        SLP address
-
-    port:
-        SLP port
-
-    tls:
-        enable/disable TLS connection
-        available value: true (default), false
-
-    ===== load SLP profile automatically based on PLMN =====
-    mcc (optional):
-        auto configure the supl_profile if the current MCC on DUT are the same as mcc parameter you specified and auto_profile_enable is enabled
-
-    mcc_mnc (optional):
-        auto configure the supl_profile if the current MCC and MNC on DUT are the same as mcc_mnc paramter you specified and auto_profile_enable is enabled
-
-    supl_version (optional):
-        auto configure supl_version if above mcc_mnc condition is met
-        available value: 1 -> SUPL1.0 (default)
-        available value: 2 -> SUPL2.0
-
-    tls_version (optional):
-        auto configure tls_version if above mcc_mnc condition is met
-        available value: 0 -> TLS1.0 (default)
-        available value: 1 -> TLS1.1
-        available value: 2 -> TLS1.2
-
-    sha_version (optional):
-        auto configure sha_version if above mcc_mnc condition is met
-        available value: 0 -> SHA1 for SUPL1.0 and SHA256 for SUPL2.0 (default)
-        available value: 1 -> SHA1 for SUPL1.0 and SUPL2.0
-        available value: 2 -> SHA256 for SUPL1.0 and SUPL2.0
-
-    ===== other parameters are used for DM =====
-    app_id (optional):
-        "ap0004"
-
-    provider_id (optional):
-        "221.176.0.55"
-
-    default_apn (optional):
-        "XXX WAP"
-
-    optional_apn (optional):
-        "internet"
-
-    optional_apn_2 (optional):
-        ""
-
-    address_type (optional):
-        "IPv4address:port"
-  -->
-
-  <cur_supl_profile name="GOOGLE"
-      addr="supl.google.com"
-      port="7276"
-      tls="false"
-  />
+  <!--  slp_name: default slp name to be shown in AGPS
+	backup_slp_name_var: mui slp name variable in string.xml(optional) 
+	address: SLP address
+	show_type: whether show this profile or not, 0:always show  1:only show in engineer mode  2:show according to current operator
+   -->
 
   <!-- GOOGLE-->
-  <supl_profile name="GOOGLE"
-      addr="supl.google.com"
+  <agps_profile code="GOOGLE"
+      slp_name="GOOGLE"
+      backup_slp_name_var="GOOGLE_SPL_Name"
+      address="supl.google.com"
       port="7275"
-      tls="true"
+      tls="1"
+      show_type="0"
   />
-
+  
   <!-- GOOGLE-->
-  <supl_profile name="GOOGLE nonTLS"
-      addr="supl.google.com"
+  <agps_profile code="GOOGLE nonTLS"
+      slp_name="GOOGLE"
+      backup_slp_name_var="GOOGLE_SPL_Name"
+      address="supl.google.com"
       port="7276"
-      tls="false"
+      tls="0"
+      show_type="0"
+  />
+  <!-- GOOGLE-->
+  <agps_profile code="GOOGLE IP"
+      slp_name="GOOGLE"
+      backup_slp_name_var="GOOGLE_SPL_Name"
+      address="173.194.72.192"
+      port="7276"
+      tls="0"
+      show_type="0"
+  />
+  
+  <!-- NOKIA-->
+  <agps_profile code="NOKIA"
+      slp_name="NOKIA"
+      backup_slp_name_var="NOKIA_SPL_Name"
+      address="supl.nokia.com"
+      port="7275"
+      tls="1"
+      show_type="0"
+  />
+  
+  <!-- Spirent Lab -->
+  <agps_profile code=""
+      slp_name="Lab - Spirent"
+      backup_slp_name_var="Spirent"
+      address="www.spirent-lcs.com"
+      port="7275"
+      tls="1"
+      show_type="1"
+  />
+  
+  <!-- R&S Lab -->
+  <agps_profile code=""
+      slp_name="Lab - RnS"
+      backup_slp_name_var="RS"
+      address="slp.rs.de"
+      port="7275"
+      tls="1"
+      show_type="1"
+  />
+ 
+  <!-- CMCC Lab -->
+  <agps_profile code=""
+      slp_name="Lab - CMCC"
+      backup_slp_name_var="CMCC"
+      address="218.206.176.50"
+      port="7275"
+      tls="1"
+      show_type="1"
+  />
+  
+  <!-- Andrew Lab -->
+  <agps_profile code=""
+      slp_name="Lab - Andrew"
+      backup_slp_name_var="Andrew"
+      address="slp1acva.andrew.com"
+      port="7275"
+      tls="1"
+      show_type="1"
   />
 
-  <!-- Test 1 -->
-  <supl_profile name="Test 1"
-      addr="127.0.0.1"
-      port="7276"
-      tls="false"
-      mcc_mnc="999998"
-      supl_version="1"
-      tls_version="0"
-      sha_version="2"
+  <!-- Ericsson  Lab -->
+  <agps_profile code=""
+      slp_name="Lab - Ericsson"
+      backup_slp_name_var="Ericsson"
+      address="172.22.1.100"
+      port="7275"
+      tls="1"
+      show_type="1"
   />
 
-  <!-- Test 2 -->
-  <supl_profile name="Test 2"
-      addr="127.0.0.1"
-      port="7276"
-      tls="false"
-      mcc_mnc="999999"
-      supl_version="2"
-      tls_version="1"
-      sha_version="0"
+  <!-- Ericsson  Lab FQDN -->
+  <agps_profile code=""
+      slp_name="Lab - Ericsson FQDN"
+      backup_slp_name_var="Ericsson"
+      address="mvtvltegmpc.naladmz.ericsson.ca"
+      port="7275"
+      tls="1"
+      show_type="1"
   />
 
-  <!-- Test 3 -->
-  <supl_profile name="Test 3"
-      addr="127.0.0.1"
-      port="7276"
-      tls="false"
-      mcc="998"
-      supl_version="1"
-      tls_version="2"
-      sha_version="1"
+  <!-- ORANGE 00-->
+  <agps_profile code="20800"
+      slp_name="ORANGE 00"
+      backup_slp_name_var="ORANGE00_SPL_Name"
+      address="agpss.orange.fr"
+      port="7275"
+      tls="1"
+      show_type="2"
+  />
+  <!-- ORANGE 01-->
+  <agps_profile code="20801"
+      slp_name="ORANGE 01"
+      backup_slp_name_var="ORANGE01_SPL_Name"
+      address="agpss.orange.fr"
+      port="7275"
+      tls="1"
+      show_type="2"
+  />
+  <!-- ORANGE 02-->
+  <agps_profile code="20802"
+      slp_name="ORANGE 02"
+      backup_slp_name_var="ORANGE02_SPL_Name"
+      address="agpss.orange.fr"
+      port="7275"
+      tls="1"
+      show_type="2"
   />
 
-  <!-- cdma_profile
+  <!-- CMCC-->
+  <agps_profile code="46000"
+      slp_name="China Mobile AGPS server"
+      backup_slp_name_var="CMCC_SPL_Name"
+      address="221.176.0.55"
+      port="7275"
+      tls="1"
+      show_type="2"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
 
-    name:
-        SLP name
+  <!-- CMCC2-->
+  <agps_profile code="46002"
+      slp_name="China Mobile AGPS server"
+      backup_slp_name_var="CMCC_SPL_Name"
+      address="221.176.0.55"
+      port="7275"
+      tls="1"
+      show_type="2"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
+  
+  <!-- CMCC TD-->
+  <agps_profile code="46007"
+      slp_name="China Mobile AGPS server"
+      backup_slp_name_var="CMCC_SPL_Name"
+      address="221.176.0.55"
+      port="7275"
+      tls="1"
+      show_type="2"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
 
-    mcp_enable:
-        enable/disable MCP parameters
-        available value: true, false (default)
+  <!-- Telstra-->
+  <agps_profile code="Telstra"
+      slp_name="Telstra"
+      backup_slp_name_var="Telstra_SPL_Name"
+      address="agps.supl.telstra.com"
+      port="7275"
+      tls="1"
+      show_type="1"
+  />
 
-    mcp_addr:
-        MCP address
-
-    mcp_port:
-        MCP port
-
-    pde_addr_valid:
-        PDE address is valid or invalid
-        available value: true, false (default)
-
-    pde_ip_type:
-        PDE's address type
-        available value: 0 -> IPv4 (default)
-        available value: 1 -> IPv6
-
-    pde_addr:
-        PDE IP address
-
-    pde_port:
-        PDE port
-
-    pde_url_valid:
-        PDE URL is valid or invalid
-        available value: true, false (default)
-
-    pde_url_addr:
-        PDE URL
+  <!-- Vodafone
+  <agps_profile code="Vodafone"
+      slp_name="Vodafone"
+      backup_slp_name_var="Vodafone_SPL_Name"
+      address="supl.vodafone.com"
+      port="7275"
+      tls="1"
+      show_type="0"
+      mcc_mnc="22010"
+  />
+  -->
+  
+  <!-- CHUAN HWA
+  <agps_profile code="46692"
+      slp_name="Chunghwa"
+      backup_slp_name_var="CHUANHWA_SPL_Name"
+      address="10.1.101.137"
+      port="8025"
+      tls="0"
+      show_type="2"
+  />
+	-->
+	
+  <!-- China Unicom Test 
+  <agps_profile code="46001"
+      slp_name="China Unicom"
+      backup_slp_name_var="CU_SPL_Name"
+      address="172.0.0.1"
+      port="8025"
+      tls="0"
+      show_type="2"
+  />
   -->
 
-  <!-- CDMA profile template -->
+  <!-- Profile for CDMA-->
   <cdma_profile name="CDMA1"
-  	mcp_enable="false"
+  	mcp_enable="no"
   	mcp_addr="10.199.2.165"
   	mcp_port="6066"
-  	pde_addr_valid="false"
+  	pde_addr_valid="no"
   	pde_ip_type="0"
-  	pde_addr="11.11.11.11"
+  	pde_ip4_addr="11.11.11.11"
+  	pde_ip6_addr="001.002.003.004.005.006.007.008.009.010.011.012.013.014.015.016"
   	pde_port="1111"
-  	pde_url_valid="false"
+  	pde_url_valid="no"
   	pde_url_addr="www.mediatek.com"
   />
-
-
-  <!-- agps_setting
-
-    agps_enable:
-        enable/disable A-GPS
-        available value: true (default), false
-
-    agps_protocol:
-       choose which A-GPS you want to use for SET Initiated
-       available value: 0 -> User Plane (default)
-       available value: 1 -> Control Plane
-
-    gpevt:
-        enable/disable GPEVT report
-        available value: true, false (default)
-  -->
-  <agps_setting
-    agps_enable="true"
-    agps_protocol="0"
-    gpevt="false"
+  
+  <cdma_profile name="CDMA2"
+  	mcp_enable="no"
+  	mcp_addr="2.2.2.2"
+  	mcp_port="222"
+  	pde_addr_valid="no"
+  	pde_ip_type="1"
+  	pde_ip4_addr="22.22.22.22"
+  	pde_ip6_addr="001.002.003.004.005.006.007.008.009.010.011.012.013.014.015.116"
+  	pde_port="2222"
+  	pde_url_valid="no"
+  	pde_url_addr="www.mediatek.com2"
   />
-
-
-  <!-- cp_setting
-
-    molr_pos_method:
-        available value: 0 (Location Estimate) (default)
-        available value: 1 (Assistance Data)
-
-    external_addr_enable:
-        enable/disable the external address
-        available value: true, false (default)
-
-    external_addr:
-        external_address
-
-    mlc_number_enable:
-        enable/disable the mlc number
-        available value: true, false (default)
-
-    mlc_number:
-        MLC number
-
-    cp_auto_reset:
-        enable/disable to send PMTK997_5
-        available value: true, false (default)
-
-    epc_molr_lpp_payload_enable:
-    	enable/disable to send LPP payload in the EPC-MOLR message
-        available value: true, false (default)
-
-    epc_molr_lpp_payload:
-        specify the LPP payload in the EPC-MOLR message in hexString format (ex: "010203ff" = { 0x01, 0x02, 0x03, 0xff }
-        the purpose of this parameter is used for LAB testing only, please do not change it.
-
-  -->
-  <cp_setting
-    molr_pos_method="0"
-    external_addr_enable="false"
-    external_addr="0123456789*#+"
-    mlc_number_enable="false"
-    mlc_number="0123456789*#+"
-    cp_auto_reset="false"
-    epc_molr_lpp_payload_enable="false"
-    epc_molr_lpp_payload="D2000010237B2026404FB8007202BFFFFFFFF80000000020C0000100940FB9001202B7FFFFF8000000000061800002018A00"
+  
+  <cdma_profile name="CDMA3"
+  	mcp_enable="no"
+  	mcp_addr="3.3.3.3"
+  	mcp_port="333"
+  	pde_addr_valid="yes"
+  	pde_ip_type="1"
+  	pde_ip4_addr="33.33.33.33"
+  	pde_ip6_addr="001.002.003.004.005.006.007.008.009.010.011.012.013.014.015.226"
+  	pde_port="3333"
+  	pde_url_valid="no"
+  	pde_url_addr="www.mediatek.com3"
   />
+  
+<!-- The following parameters are provided for customer to 
+    configure A-GPS default value.
+-->
+  <!--  
+   agps_enable:(for CP/UP)
+      whether to permit enable A-GPS when the first boot up.
+      Available value: yes, no (case sensitive)
 
-  <!-- up_setting
+   ca_enable: (for UP only)
+      enable or disable  the certification
+      Available value: yes, no (case sensitive)
 
-    ca_enable:
-        enable/disable the certificate verification
-        available value: true, false (default)
+   cdma_agps_preferred: (for CDMA only)
+      when CDMA network and WCDMA network are available, which AGPS protocol you prefer?
+      Avaialbe value: 0 (WCDMA AGPS protocol is preferred)
+      Avaialbe value: 1 (CDMA AGPS protocol is preferred)
+      Avaialbe value: 2 (FORCE CDMA AGPS protocol)
 
-    ni_request:
-        enable/disable Network Initiated (NI) functionality
-        available value: true (default), false
+   cp_auto_reset: (for CP only)
+     enable or disable PMTK997_5 for CP reset flow
+     Available value: yes, no (case sensitive)
 
-    roaming:
-        enable/disable to use A-GPS when device is under roaming state
-        available value: true (default), false
+   cp_gemini_pref_sim: (for CP only)
+      This parameter indicates which SIM you want to use for CP MO-LR and 
+	it is used only when two available SIMs are ready.
+      Available value: 1 (it means use sim1 as prefrerred) 
+      Available value: 2 (it means use sim2 as prefrerred if your platform supports two or more SIM)
+      Available value: 3 (it means use sim3 as prefrerred if your platform supports three or more SIM)
+      Available value: 4 (it means use sim4 as prefrerred if your platform supports four or more SIM)
 
-    cdma_preferred:
-        when CDMA network and WCDMA network are available, which AGPS protocol you prefer?
-        available value: 0 (WCDMA AGPS protocol is preferred) (default)
-        available value: 2 (FORCE CDMA AGPS protocol)
+   cp_up_selection: (for CP/UP)
+      choose which agps protocol (CP/UP) you want to use for SI case if UP selected or MOLR case if CP selected
+      Available value: cp (Control Plane is used for MOLR, case sensitive)
+      Available value: up (User Plane is used for SI, case sensitive)
 
-    pref_method:
-        the preferred method in SUPL_START and SUPL_POS_INIT
-        available value: 0 -> SET assisted Preferred
-        available value: 1 -> SET Based Preferred (default)
-        available value: 2 -> no Preference
+   default_cdma_profile: (for CDMA only)
+      the default CDMA profile when device first boot up, please assign the name in cdma_profile name
+      Available value: CDMA1
 
-    supl_version:
-        SUPL version for ULP
-        available value: 1 -> SUPL1.0 (default)
-        available value: 2 -> SUPL2.0
+   default_profile:(for UP only)
+      the default profile when device first boot up. please assign the slp_name 
+      Available value: NOKIA, GOOGLE 
 
-    tls_version:
-        TLS version for TLS connection
-        available value: 0 -> TLS1.0 (default)
-        available value: 1 -> TLS1.1
-        available value: 2 -> TLS1.2
+   disable_after_reboot:(for CP/UP)
+      whether to enable A-GPS when device sencond boot up.
+      Available value: yes, no (case sensitive)
 
-    sha_version:
-        SHA version for calculating VER
-        available value: 0 -> SHA1 for SUPL1.0 and SHA256 for SUPL2.0 (default)
-        available value: 1 -> SHA1 for SUPL1.0 and SUPL2.0
-        available value: 2 -> SHA256 for SUPL1.0 and SUPL2.0
+   ecid_enable: (for UP only)
+      enable or disable eCID functionality for UP
+      Available value: yes, no (case sensitive)
 
-    supl_log:
-        enable or disable the AGPS log
-        available value: true, false (default)
+   gpevt: (for CP/UP)
+     enable or disable the GPEVT message forwarding functionality from AGPSD to MNL
+     Available value: yes, no (case sensitive)
 
-    msa_enable:
-        enable/disable the MSA capability
-        available value: true (default), false
+   log_file_max_num: (for UP only)
+      the max number of log file can be saved in /data/agps_supl/log.
+      Available vaule: 1~100
 
-    msb_enable:
-        enable/disable the MSB capability
-        available value: true (default), false
+   ni_request:(for CP/UP)
+      whether to accept the network request for SET's location 
+      Available value: yes, no (case sensitive)
 
-    ecid_enable:
-        enable/disable the eCID capability
-        available value: true (default), false
+   notify_timeout: (for UP only)
+      determine how long does A-GPS Dialog for notification type need to show
+      Available value: 0~20
 
-    otdoa_enable:
-        enable/disable the OTDOA capability
-        available value: true, false (default)
+   roaming: (for UP only)
+      whether to use A-GPS when device is under roaming
+      Available value: yes, no (case sensitive)
 
-    udp_port_enable:
-        enable/disable the UDP 7275 port by default, if you enable it, you may cause Android/CTS failure for checking netstat
-        available value: true, false (default)
+   si_mode:(for UP only)
+      set si mode to ma or mb
+      Available value: ma, mb (case sensitive)
 
-    dedicated_apn_enable:
-        enable/disable the dedicated SUPL APN flow
-        available value: true, false (default)
+   supl_version: (for UP only)
+     choose which SUPL version you want to use
+     Available value: 1, 2
 
-    preferred_2g3g_cell_age:
-        max age of 2G / 3G cell info in history is OK to send to SLP server instead if the latest cell is of 3G or 4G.
-        available value: non-negative integer, from 0 ~ 1800, unit in second
-                           0 (always use the latest cell info)
-                         300 (prefer to use 2G / 3G cell if its age is less than 5 mins)
+   verify_timeout: (for UP only)
+      determine how long does A-GPS Dialog for verification type need to show
+      Available value: 0~20
+      
+   dedicated_supl_apn: (for UP only)
+      determine whether to use the dedicated SUPL APN for A-GPS session
+      Available value: 0 (do not startUsingNetworkFeature/stopUsingNetworkFeature for SUPL in any case, user must establish the data connection before using A-GPS)
+      Available value: 1 (do startUsingNetworkFeature/stopUsingNetworkFeature for SUPL when data connection is on, user must establish the data connection before using A-GPS)
+      Available value: 2 (do startUsingNetworkFeature/stopUsingNetworkFeature in any case, user does not need to establish the data connection before using A-GPS)
 
-    lpp_enable:
-        enable/disable the LPP capability
-        available value: true (default), false
-
-    cert_from_sdcard:
-        enable/disable the AGPS certification installation from SDCard
-        available value: true (default), false
-
-    auto_profile_enable:
-        enable/disable the auto profile configuration based on current mcc or mcc_mnc specified in cur_supl_profile or supl_profile
-        available value: true (default), false
-
-    ut2:
-        customize the SUPL UT2 timer
-        available value: 1~60, default value is 11 (OMA spec)
-
-    ut3:
-        customize the SUPL UT3 timer
-        available value: 1~60, default value is 10 (OMA spec)
-
-    sync_to_slp:
-        sync the AGPS setting (ex: SUPL profile, SUPL version, TLS version) from AGPSD to SLPD in runtime
-        available value: true, false (default)
+   epc_molr_lpp_payload (for 4G CP only)
+     specify the LPP payload in the EPC-MOLR message in hexString format (ex: "010203ff" = { 0x01, 0x02, 0x03, 0xff }
+     the purpose of this parameter is used for LAB testing only, please do not change it.
   -->
-  <up_setting
-    ca_enable="false"
-    ni_request="true"
-    roaming="true"
-    cdma_preferred="0"
-    pref_method="1"
+  <agps_conf_para
+    agps_enable="yes"
+    ca_enable="no"
+    cdma_agps_preferred="0"
+    cp_auto_reset="no"
+    cp_gemini_pref_sim="1"
+    cp_up_selection="up"
+    default_cdma_profile="CDMA1"
+    default_profile="GOOGLE"
+    disable_after_reboot="no"
+    ecid_enable="yes"
+    gpevt="no"
+    log_file_max_num="10"
+    ni_request="yes"
+    notify_timeout="8"
+    roaming="yes"
+    si_mode="mb"
     supl_version="1"
-    tls_version="0"
-    sha_version="0"
-    supl_log="false"
-    msa_enable="true"
-    msb_enable="true"
-    ecid_enable="true"
-    otdoa_enable="false"
-    qop_hacc="22"
-    qop_vacc="0"
-    qop_loc_age="0"
-    qop_delay="0"
-    udp_port_enable="false"
-    dedicated_apn_enable="false"
-    preferred_2g3g_cell_age="300"
-    lpp_enable="true"
-    cert_from_sdcard="false"
-    auto_profile_enable="false"
-    ut2="11"
-    ut3="10"
-    sync_to_slp="false"
+    verify_timeout="8"
+    dedicated_supl_apn="1"
+    epc_molr_lpp_payload="000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1fff"
   />
-
-</mtk_agps_profiles>
+</agps_profiles>
