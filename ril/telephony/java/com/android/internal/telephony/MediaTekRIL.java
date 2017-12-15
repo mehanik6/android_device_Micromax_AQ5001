@@ -393,7 +393,7 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
     iccIOForApp (int command, int fileid, String path, int p1, int p2, int p3,
             String data, String pin2, String aid, Message result) {
         if (command == 0xc0 && p3 == 0) {
-            Rlog.i("MT6735", "Override the size for the COMMAND_GET_RESPONSE 0 => 15");
+            Rlog.i("MediaTekRIL", "Override the size for the COMMAND_GET_RESPONSE 0 => 15");
             p3 = 15;
         }
         super.iccIOForApp(command, fileid, path, p1, p2, p3, data, pin2, aid, result);

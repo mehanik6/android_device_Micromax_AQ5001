@@ -44,35 +44,16 @@ PRODUCT_PACKAGES += \
     lib_driver_cmd_mt66xx
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
-
-# GSM
-PRODUCT_PACKAGES += libmt6582
-
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    
 # Bluetooth
 PRODUCT_PACKAGES += libbt-vendor
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=MediaTekRIL
 
-# Wifi
-PRODUCT_PACKAGES += \
-    lib_driver_cmd_mt66xx \
-    libwpa_client \
-    hostapd \
-    wpa_supplicant \
-    wpa_supplicant.conf
-
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    $(LOCAL_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(LOCAL_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
-    
-PRODUCT_PACKAGES += \
-    gps.mt6582
+     $(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # Rootdir
 PRODUCT_COPY_FILES += \
@@ -120,24 +101,39 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
 
+# Wifi
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    $(LOCAL_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
+    $(LOCAL_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
 
 # Charger
 PRODUCT_PACKAGES += \
-    charger \
-    charger_res_images \
-    libnl_2 \
-    libtinyxml
+    charger_res_images
 
 # FM Radio
 PRODUCT_PACKAGES += \
     FMRadioGoogle \
     FmRadioTrampoline2
 
+# GPS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
-# Media codecs
+PRODUCT_PACKAGES += \
+    gps.mt6582
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \

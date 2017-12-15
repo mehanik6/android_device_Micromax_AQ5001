@@ -95,7 +95,7 @@ TARGET_RECOVERY_DEVICE_DIRS += $(LOCAL_PATH)
 TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0/gadget/lun%d/file
 TW_MAX_BRIGHTNESS := 255
 RECOVERY_SDCARD_ON_DATA := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
@@ -156,7 +156,7 @@ USE_MINIKIN := true
 # Selinux
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
-# Sepolicy hack for old kernel, mt6582 version is 26.
+# Sepolicy hack for old kernel, mt6582 version is 29.
 POLICYVERS := 26
 
 # Seccomp filter
