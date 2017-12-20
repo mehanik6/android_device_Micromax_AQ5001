@@ -469,12 +469,7 @@ on post-fs-data
     chmod 0660 /dev/kd_camera_hw_bus2
     chmod 0660 /dev/FM50AF
     chmod 0660 /dev/CAM_CAL_DRV
-    chmod 0660 /dev/EEPROM_M24C08F
-    chmod 0660 /dev/OV8858AF_GZ
-    chmod 0660 /dev/OV8858AF_QT
-    chmod 0660 /dev/OV8858AF_SY
-    chmod 0660 /dev/DW9718AF
-    
+
     chown system camera /dev/camera-sysram
     chown system camera /dev/camera-isp
     chown system camera /dev/camera-pipemgr
@@ -483,11 +478,6 @@ on post-fs-data
     chown system camera /dev/kd_camera_hw_bus2
     chown system camera /dev/FM50AF
     chown system camera /dev/CAM_CAL_DRV
-    chown system camera /dev/EEPROM_M24C08F
-    chown system camera /dev/OV8858AF_GZ
-    chown system camera /dev/OV8858AF_QT
-    chown system camera /dev/OV8858AF_SY
-    chown system camera /dev/DW9718AF
 
     #MATV
     chmod 0660 /dev/MATV
@@ -506,11 +496,11 @@ on post-fs-data
     chown system media /dev/mtkg2d
 
     chmod 0660 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
-    chown media media /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+    chown system camera /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
 
     # SMI
     chmod 0660 /dev/MTK_SMI
-    chown media media /dev/MTK_SMI
+    chown system camera /dev/MTK_SMI
 
     #mtk_sched
     chmod 0660 /dev/mtk_sched

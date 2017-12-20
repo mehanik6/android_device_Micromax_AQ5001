@@ -40,6 +40,7 @@ TARGET_OTA_ASSERT_DEVICE := AQ5001
 OLD_KERNEL := true
 NVRAM_WARNING := true
 BOARD_HAS_MTK_HARDWARE := true
+BOARD_USES_MTK_HARDWARE := true
 MTK_HARDWARE := true
 BOARD_USES_LEGACY_MTK_AV_BLOB := true
 BOARD_GLOBAL_CFLAGS += -DMTK_HARDWARE -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
@@ -156,7 +157,7 @@ USE_MINIKIN := true
 # Selinux
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
-# Sepolicy hack for old kernel, mt6582 version is 29.
+# Sepolicy hack for old kernel, mt6582 version is 26.
 POLICYVERS := 26
 
 # Seccomp filter
