@@ -124,8 +124,8 @@ PRODUCT_PACKAGES += \
 
 # FM Radio
 PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+    FMRadioGoogle \
+    FmRadioTrampoline2
 
 # GPS
 PRODUCT_COPY_FILES += \
