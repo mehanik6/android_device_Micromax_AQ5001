@@ -82,6 +82,11 @@ on post-fs
     exec /system/bin/mknod /dev/stpgps c 191 0
     exec /system/bin/mknod /dev/stpbt  c 192 0
 
+    # FM Radio device node
+    exec /system/xbin/mknod /dev/fm c 193 0
+    chmod 0777 /dev/fm
+    chown system media /dev/fm
+
     # GPS
     chmod 0666 /dev/gps
     chown system gps /dev/gps
